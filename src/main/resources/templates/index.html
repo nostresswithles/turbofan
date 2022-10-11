@@ -3,8 +3,139 @@
 <head>
     <title>Turbofan Project</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
+    </script>
+    <script type="text/javascript" src="functions.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+        }
+        .chartMenu {
+            width: 100vw;
+            height: 40px;
+            background: #1A1A1A;
+            color: rgba(255, 26, 104, 1);
+        }
+        .chartMenu p {
+            padding: 10px;
+            font-size: 20px;
+        }
+        .chartCard {
+            width: 100vw;
+            height: calc(100vh - 40px);
+            background: rgba(255, 26, 104, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+        .chartBox {
+            width: 700px;
+            padding: 20px;
+            border-radius: 20px;
+            border: solid 3px rgba(255, 26, 104, 1);
+            background: white;
+            margin-bottom: 10px;
+        }
+        .hide {
+            display: none !important;
+        }
+    </style>
 </head>
 <body>
 <p>Get your greeting <a href="/greeting">here</a></p>
+
+<p id="demo">A Paragraph.</p>
+<button type="button" onclick="myFunction()">Try it</button>
+
+<canvas id="myChart_o" style="width:100%;max-width:700px"></canvas>
+
+<div class="chartMenu">
+    <p>WWW.CHARTJS3.COM (Chart JS 3.9.1)</p>
+</div>
+<div class="chartCard">
+    <div class="chartBox">
+        <p>Chart 1: <input onclick="showChart(this)" type="checkbox" data-chart-name="myChart"></p>
+        <p>Chart 2: <input onclick="showChart(this)" type="checkbox" data-chart-name="myChart2"></p>
+    </div>
+    <div class="chartBox">
+        <canvas class="hide" id="myChart"></canvas>
+        <canvas class="hide" id="myChart2"></canvas>
+    </div>
+</div>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    // setup
+    const data = {
+        labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+        datasets: [{
+            label: 'Weekly Sales',
+            data: [18, 12, 6, 9, 12, 3, 9],
+            backgroundColor: [
+                'rgba(255, 26, 104, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)',
+                'rgba(0, 0, 0, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255, 26, 104, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)',
+                'rgba(0, 0, 0, 1)'
+            ],
+            borderWidth: 1
+        }]
+    };
+
+    // config
+    const config = {
+        type: 'bar',
+        data,
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    };
+    const config2 = {
+        type: 'line',
+        data,
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    };
+
+    // render init block
+    const myChart = new Chart(
+        document.getElementById('myChart'),
+        config
+    );
+    const myChart2 = new Chart(
+        document.getElementById('myChart2'),
+        config2
+    );
+
+    function showChart(checkbox){
+        console.log(checkbox.dataset.chartName)
+        const chartId = document.getElementById(checkbox.dataset.chartName)
+
+        chartId.classList.toggle("hide");
+    }
+</script>
 </body>
 </html>
