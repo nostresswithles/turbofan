@@ -1,15 +1,17 @@
 ### Usage
-139-162-146-253.ip.linodeusercontent.com:8081
+139-162-146-253.ip.linodeusercontent.com:8080
 
 ### Functionality
-**Install java on VM**
-* install java on [ubuntu](https://www.rosehosting.com/blog/how-to-install-java-17-lts-on-ubuntu-20-04/) <br><br>
+**Install Docker on VM**
+* install Docker on [ubuntu](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-22-04) <br><br>
 
 **Copy the .jar from your localmachine to a folder on the VM**
 * scp turbofan-api-0.0.1-SNAPSHOT.jar <username>@<Private IP>:~/projects <br><br>
 
-**Run the jar**
-* java -jar turbofan-api-0.0.1-SNAPSHOT.jar
+**Build and run the docker image**
+```bash docker build -t nostresswithles/turbofan . ```
+```bash docker run -p 8080:8081 nostresswithles/turbofan -d```
+
 
 
 
