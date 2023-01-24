@@ -24,9 +24,4 @@ CREATE TABLE data_model (
                       sensor_measurement_18   DECIMAL,
                       sensor_measurement_19   DECIMAL,
                       sensor_measurement_20   DECIMAL,
-                      sensor_measurement_21   DECIMAL,
-                      sensor_measurement_22   DECIMAL,
-                      sensor_measurement_23   DECIMAL,
-                      sensor_measurement_24   DECIMAL,
-                      sensor_measurement_25   DECIMAL,
-                      sensor_measurement_26   DECIMAL);
+                      sensor_measurement_21   DECIMAL);
