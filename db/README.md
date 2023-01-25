@@ -36,15 +36,15 @@ Run the following command to deploy the docker container with the postgres datab
     docker run --rm --name turbofan_db -v ${HOME}/Sync/turbofan_db/pgdata:/var/lib/postgresql/data -e POSTGRES_PASSWORD=1234 -e POSTGRES_DB=turbofan_data -d -p 6666:5432 nostresswithles/turbofan_db    
 ```
 
-## Copy the contents of cleaned data to Linode
-The csv files need to be placed inside the /pgdata folder so that the database can read it from inside Docker
+## Import CSV into database
+The csv files need to be placed inside the /pgdata folder so that the database can read it from inside Docker. <br>
 From the root of the project type the following command
 ```bash
  scp -r ./db/data/cleaned/* root@139.162.146.253:~/Sync/turbofan_db/pgdata
 ```
 
-## Import CSV into database
-First run psql inside the docker container
+
+From inside the linode server run the following to open a psql shell:
 ```bash
     docker exec -it turbofan_db psql -U postgres -d turbofan_data
 ```
@@ -64,7 +64,7 @@ in the psql terminal run the command that copies all csv files as tables into th
     \copy rul_fd003 FROM '/var/lib/postgresql/data/RUL_FD003.csv' DELIMITER ',' CSV
     \copy rul_fd004 FROM '/var/lib/postgresql/data/RUL_FD004.csv' DELIMITER ',' CSV;
 ```
-
+* note: press ENTER after this has run or the last line won't get handled.  
  
 ### CleanUP
 To delete all containers including its volumes use,
