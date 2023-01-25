@@ -21,6 +21,13 @@ transform(){
   done
 }
 
+mv_rul(){
+    for file in ./db/data/RUL*.txt
+    do
+        mv "${file}" ./db/data/cleaned/${file##*/}
+    done
+}
+
 change_extension(){
   for file in ./db/data/cleaned/*.txt
   do
@@ -38,6 +45,9 @@ run(){
 
   echo "Transformation completed, removing tmp dir"
   rm -rf ./db/data/tmp
+
+  echo "Moving the RUL dataset"
+  mv_rul
 
   echo "Changing extension"
   change_extension
