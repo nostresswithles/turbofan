@@ -3,8 +3,8 @@ package com.nostresswithles.turbofanapi.models;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "data_model")
-public class data_model {
+@Table(name = "train_fd001")
+public class EngineData {
 
     @Id
     @Column(name = "unit_number")
@@ -100,10 +100,10 @@ public class data_model {
     @Column(name = "sensor_measurement_26")
     private Double sensor_measurement_26;
 
-    public data_model() {
+    public EngineData() {
     }
 
-    public data_model(Integer unit_number, Integer time_in_cycles, Double op_setting_1, Double op_setting_2, Double op_setting_3, Double sensor_measurement_1, Double sensor_measurement_2, Double sensor_measurement_3, Double sensor_measurement_4, Double sensor_measurement_5, Double sensor_measurement_6, Double sensor_measurement_7, Double sensor_measurement_8, Double sensor_measurement_9, Double sensor_measurement_10, Double sensor_measurement_11, Double sensor_measurement_12, Double sensor_measurement_13, Double sensor_measurement_14, Double sensor_measurement_15, Double sensor_measurement_16, Double sensor_measurement_17, Double sensor_measurement_18, Double sensor_measurement_19, Double sensor_measurement_20, Double sensor_measurement_21, Double sensor_measurement_22, Double sensor_measurement_23, Double sensor_measurement_24, Double sensor_measurement_25, Double sensor_measurement_26) {
+    public EngineData(Integer unit_number, Integer time_in_cycles, Double op_setting_1, Double op_setting_2, Double op_setting_3, Double sensor_measurement_1, Double sensor_measurement_2, Double sensor_measurement_3, Double sensor_measurement_4, Double sensor_measurement_5, Double sensor_measurement_6, Double sensor_measurement_7, Double sensor_measurement_8, Double sensor_measurement_9, Double sensor_measurement_10, Double sensor_measurement_11, Double sensor_measurement_12, Double sensor_measurement_13, Double sensor_measurement_14, Double sensor_measurement_15, Double sensor_measurement_16, Double sensor_measurement_17, Double sensor_measurement_18, Double sensor_measurement_19, Double sensor_measurement_20, Double sensor_measurement_21, Double sensor_measurement_22, Double sensor_measurement_23, Double sensor_measurement_24, Double sensor_measurement_25, Double sensor_measurement_26) {
         this.unit_number = unit_number;
         this.time_in_cycles = time_in_cycles;
         this.op_setting_1 = op_setting_1;
